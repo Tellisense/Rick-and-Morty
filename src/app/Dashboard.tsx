@@ -70,23 +70,19 @@ export default function Dashboard({
         </aside>
         <div>
           {currentEpisode.name && (
-            <p className={styles.counter}>
+            <div className={styles.counter}>
               {`${currentCharacters.length} characters in "${currentEpisode.name}" episode.`}
-            </p>
+            </div>
           )}
-          {loading ? (
-            <div className={styles.loader}>Loading...</div>
-          ) : (
-            <main className={styles.charContainer}>
-              {currentCharacters.map((character: Character) => (
-                <Card
-                  key={character.id}
-                  name={character.name}
-                  image={character.image}
-                />
-              ))}
-            </main>
-          )}
+          <main className={styles.charContainer}>
+            {currentCharacters.map((character: Character) => (
+              <Card
+                key={character.id}
+                name={character.name}
+                image={character.image}
+              />
+            ))}
+          </main>
         </div>
       </div>
     </div>
